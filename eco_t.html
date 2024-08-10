@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        "item1 item1 item2 item2"
+        "item4 center item3 item3"
+        "item4 center item3 item3";
+    gap: 10px;
+    width: 80%;
+    max-width: 1200px;
+    align-items: center;
+}
+
+.center-circle {
+    grid-area: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 40px;
+    position: relative;
+}
+
+.center-circle img {
+    width: 80px;
+    height: 80px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: white;
+    height: 150px;
+    width: 150px;
+}
+
+.item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.item1 { grid-area: item1; background-color: #A356C9; }
+.item2 { grid-area: item2; background-color: #D9476A; }
+.item3 { grid-area: item3; background-color: #26A69A; }
+.item4 { grid-area: item4; background-color: #EAB84F; }
+
+.essay-container {
+    margin: auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 100px;
+    line-height: 1.6;
+}
+
+.essay-container h2 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    
+
+
+}
+
+.essay-container h3 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "item1"
+            "item2"
+            "center"
+            "item3"
+            "item4";
+        width: 90%;
+    }
+
+    .center-circle {
+        order: 1;
+    }
+
+    .item {
+        width: 100%;
+    }
+
+    .essay-container {
+        width: 90%;
+    }
+}
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+footer .footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .footer-contact {
+    margin-bottom: 20px;
+}
+
+footer .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+footer .footer-social img {
+    width: 30px;
+    height: 30px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Tourism</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="center-circle">
+            <img src="{% static 'i1.png'%}" alt="Center Icon" class="center-icon">
+        </div>
+        <div class="item item1">
+            <img src="{% static 'i2.png'%}" alt="Respect to Local People">
+            <p>Respect to Local People</p>
+        </div>
+        <div class="item item2">
+            <img src="{% static 'i3.png'%}" alt="Preserve the Local Environment">
+            <p>Preserve the Local Environment</p>
+        </div>
+        <div class="item item3">
+            <img src="{% static 'i4.png'%}" alt="Achieve the Socio-Economics Benefits">
+            <p>Achieve the Socio-Economics Benefits</p>
+        </div>
+        <div class="item item4">
+            <img src="{% static 'i5.png'%}" alt="Protect the Cultural Heritage">
+            <p>Protect the Cultural Heritage</p>
+        </div>
+    </div>
+    <div class="essay-container" id="essay-container">
+        <!-- Dynamic content will be inserted here -->
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="{% url 'home'%}">Home</a>
+            
+            <a href="{% url 'vr'%}">VR Tours</a>
+            
+            <a href="{% url 'blog_list'%}">Blog</a>
+            <a href="{% url 'contact'%}">Contact Us</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="#"><img src="{% static 'facebook.png'%}"></a>
+            <a href="#"><img src="{% static 'instagram.png'%}"></a>
+            <a href="#"><img src="{% static 'twitter.png'%}"></a>
+            <a href="#"><img src="{% static 'linkedin.png'%}"></a>
+        </div>
+        <p>&copy; 2024 EcoVR. All rights reserved.</p>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const essayContainer = document.getElementById('essay-container');
+    const essayContent = `
+        <h2>The Future of Eco Tourism</h2>
+        <h3>Introduction</h3>
+        <p>Ecotourism, a sustainable travel model that emphasizes the conservation of natural environments and the well-being of local communities, has gained significant traction in recent years. As global awareness about environmental issues and the importance of sustainable development grows, ecotourism is poised to become a central pillar of the tourism industry. This essay explores the future of ecotourism, examining trends, challenges, and opportunities that will shape its development in the coming decades.</p>
+        <h3>Trends Driving the Growth of Ecotourism</h3>
+        <h4>Increased Environmental Awareness</h4>
+        <p>One of the most significant drivers of ecotourism is the rising environmental consciousness among travelers. With growing awareness of climate change, biodiversity loss, and other ecological crises, more people are seeking travel experiences that minimize their environmental footprint. This shift in consumer preferences is pushing the tourism industry to adopt more sustainable practices and develop eco-friendly destinations.</p>
+        <h4>Technological Advancements</h4>
+        <p>Technology is playing a crucial role in the evolution of ecotourism. Innovations in renewable energy, waste management, and sustainable construction are making it easier for tourism operators to minimize their environmental impact. Additionally, advancements in digital technology are enhancing the visitor experience, with virtual reality tours, mobile apps for wildlife tracking, and online platforms for booking eco-friendly accommodations.</p>
+        <h4>Community Involvement</h4>
+        <p>A core principle of ecotourism is the involvement of local communities in tourism development. Empowering local populations to manage and benefit from tourism activities not only fosters economic development but also ensures the preservation of cultural and natural heritage. The future of ecotourism will likely see increased collaboration between tourism operators, governments, and indigenous communities to create inclusive and sustainable tourism models.</p>
+        <h3>Challenges Facing Ecotourism</h3>
+        <h4>Balancing Conservation and Tourism</h4>
+        <p>One of the primary challenges for ecotourism is finding the right balance between conservation efforts and the influx of tourists. While ecotourism aims to protect natural environments, increased visitor numbers can lead to habitat degradation, wildlife disturbance, and resource depletion. Sustainable management practices, such as visitor limits and eco-friendly infrastructure, are essential to mitigate these impacts.</p>
+        <h4>Ensuring Economic Viability</h4>
+        <p>For ecotourism to be sustainable, it must be economically viable for both tourism operators and local communities. This requires the development of business models that can generate sufficient revenue while adhering to environmental and social principles. Striking this balance can be challenging, particularly in regions with limited financial resources or infrastructure.</p>
+        <h4>Climate Change</h4>
+        <p>Climate change poses a significant threat to many ecotourism destinations, particularly those in vulnerable ecosystems such as coral reefs, glaciers, and rainforests. Rising temperatures, changing precipitation patterns, and extreme weather events can damage natural habitats and reduce the attractiveness of these destinations. Adapting to climate change and building resilience into ecotourism operations will be crucial for the long-term sustainability of the sector.</p>
+        <h3>Opportunities for the Future</h3>
+        <h4>Education and Awareness</h4>
+        <p>Ecotourism has the potential to be a powerful tool for environmental education and awareness. By immersing visitors in natural environments and exposing them to conservation efforts, ecotourism can inspire a deeper appreciation for nature and a commitment to sustainable practices. Expanding educational programs and interpretive experiences will enhance the impact of ecotourism on environmental stewardship.</p>
+        <h4>Innovative Business Models</h4>
+        <p>The future of ecotourism will likely see the emergence of innovative business models that prioritize sustainability and community benefits. Examples include social enterprises, cooperative management structures, and public-private partnerships. These models can provide more equitable and sustainable economic benefits while fostering environmental conservation and cultural preservation.</p>
+        <h4>Policy Support and Regulation</h4>
+        <p>Governments and international organizations have a critical role to play in supporting the growth of ecotourism. Policies and regulations that promote sustainable tourism practices, provide funding for conservation projects, and protect natural and cultural heritage are essential. Increased investment in infrastructure, training, and marketing can also help to strengthen the ecotourism sector.</p>
+        <h3>Conclusion</h3>
+        <p>The future of ecotourism is bright, driven by increasing environmental awareness, technological advancements, and community involvement. However, significant challenges remain, including balancing conservation and tourism, ensuring economic viability, and adapting to climate change. By addressing these challenges and seizing opportunities for innovation and education, the ecotourism industry can contribute to a more sustainable and equitable future for both people and the planet. As travelers continue to seek meaningful and responsible travel experiences, ecotourism will play an increasingly important role in the global tourism landscape.</p>
+    `;
+    essayContainer.innerHTML = essayContent;
+});
+
+    // Smooth scrolling for header links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Sustainable Destinations in India</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .card h3 {
+            margin: 0;
+            color: #333;
+        }
+        .card p {
+            color: #777;
+            margin: 0.5rem 0 0;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+footer .footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .footer-contact {
+    margin-bottom: 20px;
+}
+
+footer .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+footer .footer-social img {
+    width: 30px;
+    height: 30px;
+}
+
+footer p {
+    font-size: 14px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Top 10 Sustainable Destinations in India</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <img src="{% static 'sikkim.jpg'%}" alt="Sikkim">
+            <div class="card-content">
+                <h3>Sikkim</h3>
+                <p>India's first fully organic state, promoting eco-friendly agriculture and tourism.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'kerala.jpg'%}" alt="Kerala">
+            <div class="card-content">
+                <h3>Kerala</h3>
+                <p>Eco-tourism initiatives focus on preserving natural beauty and promoting responsible travel.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'meghalaya.jpg'%}" alt="Meghalaya">
+            <div class="card-content">
+                <h3>Meghalaya</h3>
+                <p>Renowned for its living root bridges and sustainable farming practices.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'Coorg.jpg'%}" alt="Coorg">
+            <div class="card-content">
+                <h3>Coorg</h3>
+                <p>Model for sustainable agriculture and eco-friendly tourism.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'Ladakh.jpg'%}" alt="Ladakh">
+            <div class="card-content">
+                <h3>Ladakh</h3>
+                <p>Promotes responsible tourism to protect its fragile environment.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'Rishikesh.jpg'%}" alt="Rishikesh">
+            <div class="card-content">
+                <h3>Rishikesh</h3>
+                <p>Hub for eco-tourism and wellness, offering sustainable practices in various areas.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'andaman.jpg'%}" alt="Andaman and Nicobar Islands">
+            <div class="card-content">
+                <h3>Andaman and Nicobar Islands</h3>
+                <p>Focuses on eco-friendly tourism to protect unique marine ecosystems.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'spiti.jpg'%}" alt="Spiti Valley">
+            <div class="card-content">
+                <h3>Spiti Valley</h3>
+                <p>Community-led conservation efforts in a pristine environment.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'mawlynnong.jpg'%}" alt="Mawlynnong">
+            <div class="card-content">
+                <h3>Mawlynnong</h3>
+                <p>Known as the "cleanest village in Asia," promoting sustainable living practices.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'khonoma.jpg'%}" alt="Khonoma">
+            <div class="card-content">
+                <h3>Khonoma</h3>
+                <p>India's first green village, focused on sustainable agriculture and conservation.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="{% url 'home'%}">Home</a>
+            
+            <a href="{% url 'vr'%}">VR Tours</a>
+            
+            <a href="{% url 'blog_list'%}">Blog</a>
+            <a href="{% url 'contact'%}">Contact Us</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="#"><img src="{% static 'facebook.png'%}"></a>
+            <a href="#"><img src="{% static 'instagram.png'%}"></a>
+            <a href="#"><img src="{% static 'twitter.png'%}"></a>
+            <a href="#"><img src="{% static 'linkedin.png'%}"></a>
+        </div>
+        <p>&copy; 2024 EcoVR. All rights reserved.</p>
+    </footer>
+    <script>
+        // JavaScript to add any dynamic behavior can be included here
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+// Smooth scrolling for header links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

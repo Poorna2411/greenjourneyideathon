@@ -1,0 +1,611 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<style>
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #4CAF50;
+    color: white;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header .cta {
+    background: #fff;
+    color: #4CAF50;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background: url('{% static 'bg1.jpg'%}');
+    background-repeat: repeat;
+    background-size: 768px, 1024px;
+    background-attachment: auto;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero .hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    color: black;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.hero .cta,
+.hero .secondary-cta {
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.hero .cta {
+    background: #4CAF50;
+    color: white;
+}
+
+.hero .secondary-cta {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.about-us img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* VR Tours Section */
+.vr-tours {
+    background: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.vr-tours h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.vr-tours .tour-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.vr-tours .tour-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+}
+
+.vr-tours .tour-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.vr-tours .tour-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.vr-tours .tour-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.vr-tours .tour-card .cta {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Sustainability Section */
+.sustainability {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.sustainability h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.sustainability p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.sustainability .infographics {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.sustainability .infographic {
+    text-align: center;
+}
+
+.sustainability .infographic img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.sustainability .infographic p {
+    font-size: 16px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.testimonials .testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonials .testimonial-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+}
+
+.testimonials .testimonial-card img {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonials .testimonial-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Blog Section */
+.blog {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.blog h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.blog .blog-posts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.blog .blog-post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+}
+
+.blog .blog-post img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.blog .blog-post h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog .blog-post p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.blog .blog-post .read-more {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Newsletter Section */
+.newsletter {
+    background: #4CAF50;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.newsletter p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.newsletter form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    max-width: 100%;
+}
+
+.newsletter form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+footer .footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .footer-contact {
+    margin-bottom: 20px;
+}
+
+footer .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+footer .footer-social img {
+    width: 30px;
+    height: 30px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero .cta,
+    .hero .secondary-cta {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .about-us h2 {
+        font-size: 28px;
+    }
+
+    .about-us p {
+        font-size: 16px;
+    }
+
+    .vr-tours h2,
+    .sustainability h2,
+    .testimonials h2,
+    .blog h2,
+    .newsletter h2 {
+        font-size: 28px;
+    }
+
+    .vr-tours .tour-card,
+    .testimonials .testimonial-card,
+    .blog .blog-post {
+        max-width: 100%;
+        margin: 0 auto 20px;
+    }
+
+    .vr-tours .tour-card h3,
+    .blog .blog-post h3 {
+        font-size: 20px;
+    }
+
+    .newsletter form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .newsletter form input[type="email"] {
+        width: 100%;
+    }
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco & Sustainability VR Tourism</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Root&Route</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="{% url 'vr'%}">VR Tours</a></li>
+                
+                <li><a href="{% url 'blog_list'%}">Blog</a></li>
+                <li><a href="{% url 'contact'%}">Contact Us</a></li>
+            </ul>
+        </nav>
+        <a href="{% url 'vr'%}" class="cta">Book a VR Tour</a>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <a href="{% url 'vr'%}" class="cta">Start Your Virtual Tour</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-us">
+        <h2>About Us</h2>
+        <p>We are dedicated to promoting eco-sustainability through innovative virtual reality tourism. Our mission is to provide immersive experiences that highlight the beauty of our planet while encouraging sustainable practices.</p>
+        <h2>Vision</h2>
+        <p>To become the leading provider of immersive and sustainable virtual travel experiences that inspire global environmental stewardship and foster a deeper connection with nature.</p>
+        <h2>Mission</h2>
+        <p>To create high-quality, eco-friendly virtual reality tours that educate and engage users about the importance of environmental conservation, promote sustainable tourism, and minimize the ecological footprint of traditional travel.</p>
+    </section>
+
+    <section class="vr-tours">
+        <h2>Explore Our VR Tours</h2>
+        <div class="tour-cards">
+            <div class="tour-card">
+                <img src="{% static 'ko-lan.png'%}">
+                <h3>Tropical Paradise</h3>
+                <p>Experience the serene beauty of a tropical paradise from your home.</p>
+                <a href="{% url 'development'%}" class="cta">Start Tour</a>
+            </div>
+            <div class="tour-card">
+                <img src="{% static 'climbing.png'%}">
+                <h3>Mountain Adventure</h3>
+                <p>Embark on an exhilarating mountain adventure without the climb.</p>
+                <a href="{% url 'development'%}" class="cta">Start Tour</a>
+            </div>
+            <div class="tour-card">
+                <img src="{% static 'waterside-tranquility.png'%}">
+                <h3>Forest Retreat</h3>
+                <p>Relax and unwind in a peaceful forest retreat.</p>
+                <a href="{% url 'development'%}" class="cta">Start Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="sustainability">
+        <h2>Our Commitment to Sustainability</h2>
+        <p>We adopt various sustainable practices to minimize our environmental impact, including carbon offset programs, the use of eco-friendly technology, and supporting conservation efforts.</p>
+        <div class="infographics">
+            <div class="infographic">
+                <img src="{% static 'carbon-footprint.png'%}">
+                <p>Carbon Footprint Reduction</p>
+            </div>
+            <div class="infographic">
+                <img src="{% static 'renewable-energy.png'%}">
+                <p>Energy Savings</p>
+            </div>
+            <div class="infographic">
+                <img src="{% static 'conservation.png'%}">
+                <p>Conservation Efforts</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <img src="{% static 'man2.png'%}">
+                <p>"An incredible experience! I felt like I was truly there."</p>
+                <p><strong>- Hemanth</strong></p>
+            </div>
+            <div class="testimonial-card">
+                <img src="{% static 'man1.png'%}">
+                <p>"A perfect way to explore the world sustainably. Highly recommend!"</p>
+                <p><strong>- Aravind</strong></p>
+            </div>
+            <div class="testimonial-card">
+                <img src="{% static 'woman.png'%}">
+                <p>"The VR tours are stunning and so real. I love the eco-friendly focus."</p>
+                <p><strong>- Priya dhrashini</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog">
+        <h2>Latest News & Articles</h2>
+        <div class="blog-posts">
+            <div class="blog-post">
+                <img src="{% static 'eco-tourism.png'%}">
+                <h3>The Future of Eco Tourism</h3>
+                <p>Discover how virtual reality is transforming eco-tourism.</p>
+                <a href="{% url 'eco_t'%}" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="{% static 'tourism.png'%}">
+                <h3>Top 10 Sustainable Destinations</h3>
+                <p>Explore the most eco-friendly destinations around the India.</p>
+                <a href="{% url 'topten'%}" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="{% static 'virtual-glasses.png'%}">
+                <h3>How VR Can Promote Conservation</h3>
+                <p>Learn about the role of VR in promoting environmental conservation.</p>
+                <a href="{% url 'development'%}" class="read-more">Read More</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <footer>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="{% url 'vr'%}">VR Tours</a>
+            <a href="{% url 'blog_list'%}">Blog</a>
+            <a href="{% url 'contact'%}">Contact Us</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="#"><img src="{% static 'facebook.png'%}"></a>
+            <a href="#"><img src="{% static 'instagram.png'%}"></a>
+            <a href="#"><img src="{% static 'twitter.png'%}"></a>
+            <a href="#"><img src="{% static 'linkedin.png'%}"></a>
+        </div>
+        <p>&copy; 2024 EcoVR. All rights reserved.</p>
+    </footer>
+    <script>
+        // Smooth scrolling for header links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

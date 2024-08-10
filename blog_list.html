@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+    <script src="{% static 'blog/scripts.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Blog Posts</h1>
+    </header>
+    <div class="container">
+        {% for post in posts %}
+            <div class="blog-post">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                <small>{{ post.created_at }}</small>
+            </div>
+        {% endfor %}
+    </div>
+<footer>
+        <div class="footer-links">
+            <a href="{% url 'home'%}">Home</a>
+            
+            <a href="{% url 'vr'%}">VR Tours</a>
+            
+            <a href="{% url 'blog_list'%}">Blog</a>
+            <a href="{% url 'contact'%}">Contact Us</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="#"><img src="{% static 'facebook.png'%}"></a>
+            <a href="#"><img src="{% static 'instagram.png'%}"></a>
+            <a href="#"><img src="{% static 'twitter.png'%}"></a>
+            <a href="#"><img src="{% static 'linkedin.png'%}"></a>
+        </div>
+        <p>&copy; 2024 EcoVR. All rights reserved.</p>
+    </footer>
+<script>
+        // Smooth scrolling for header links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

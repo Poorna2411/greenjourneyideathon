@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            text-align: center;
+            padding: 50px;
+        }
+        .success-message {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .success-message h1 {
+            color: #007bff;
+        }
+        .success-message p {
+            margin: 20px 0;
+        }
+        .video-container {
+            margin: 20px 0;
+        }
+        .home-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+        <h1>Thank you, {{ message.name }}!</h1>
+        <p>Your message has been received successfully. We will get back to you shortly.</p>
+        <div class="video-container">
+            <video controls autoplay loop>
+                <source src="{% static 'videos/thank-you.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <a class="home-button" href="{% url 'home' %}">Home</a>
+    </div>
+</body>
+</html>
+
+

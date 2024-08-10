@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under Development</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2em;
+    color: #333;
+  }
+
+  p {
+    font-size: 1.2em;
+    color: #666;
+  }
+
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .progress-bar {
+    width: 80%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 20px auto;
+    overflow: hidden;
+  }
+
+  .progress {
+    width: 0%;
+    height: 30px;
+    background-color: #3498db;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+  }
+  .home-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: bottom;
+        }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Under Development</h1>
+  <p>We're working on something awesome. Please check back later.</p>
+  <div class="loader"></div>
+  <div class="progress-bar">
+    <div class="progress" id="progress">0%</div>
+  </div>
+</div>
+
+<script>
+  // Set the estimated completion time (in milliseconds)
+  const completionTime = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 1 week from now
+
+  // Update progress every second
+  const updateProgress = setInterval(() => {
+    const currentTime = new Date().getTime();
+    const progress = Math.min(100, Math.floor((currentTime / completionTime) * 100));
+    document.getElementById('progress').style.width = progress + '%';
+    document.getElementById('progress').innerText = progress + '%';
+    if (currentTime >= completionTime) {
+      clearInterval(updateProgress);
+      document.querySelector('h1').innerText = 'Development Completed';
+      document.querySelector('p').innerText = 'The development is now complete. Enjoy!';
+      document.querySelector('.loader').style.display = 'none';
+      document.querySelector('.progress-bar').style.display = 'none';
+    }
+  }, 1000);
+</script>
+</div>
+        <a class="home-button" href="{% url 'home' %}">Home</a>
+    </div>
+
+</body>
+</html>
